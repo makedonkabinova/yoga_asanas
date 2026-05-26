@@ -341,6 +341,7 @@ const poses = {
     ['Polmesec (črka C)', 'Standing Half Moon / C', 'Ardha Chandrasana', IMG('HalfMoon_L')],
     ['Galeb', 'Seagull Pose', '', IMG('SeatedForwardBendThreeLimbs_L')],
     ['Stol', 'Chair Pose', 'Utkatasana', IMG('Chair')],
+    ['Stol v zasuku', 'Revolved Chair Pose', 'Parivrtta Utkatasana', IMG('ChairTwist_R')],
     ['Orel', 'Eagle Pose', 'Garudasana', IMG('Eagle_L')],
     ['Trikotnik', 'Triangle Pose', 'Trikonasana', IMG('Triangle_L')],
     ['Obrnjen Trikotnik', 'Triangle Revolved', 'Parivritta Trikonasana', IMG('TriangleRevolved_L')],
@@ -351,6 +352,10 @@ const poses = {
     ['Črka T – Balancing Stick', 'Balancing Stick', 'Tuladandasana', IMG('WarriorIII_L')],
     ['Lok', 'Standing Bow', 'Dandayamana Dhanurasana', IMG('LordOfTheDance_L')],
     ['Plesalec', 'Dancer Pose', 'Natarajasana', IMG('LordOfTheDanceFull_L')],
+    ['Dancing Shiva', 'Dancing Shiva Pose', 'Natarajasana Variation', IMG('StandingHandToToeRevolved_L')],
+    ['Pollotos Osnovni', 'Standing Half Lotus', 'Ardha Padmasana', IMG('StandingHalfLotus_R')],
+    ['Pollotos Čep', 'Standing Half Lotus Forward', 'Ardha Baddha Padmottanasana', IMG('StandingForwardBendHalfLotus_R')],
+    ['Predklon na eno nogo', 'Head to knee', 'Dandayamana Janu Shirshasana', IMG('StandingHeadToKnee_L')],
     ['Drevo', 'Tree Pose', 'Vrksasana', IMG('TreePrayer_L')],
     ['Veliki polmesec', 'Half Moon Pose', 'Ardha Chandrasana', IMG('CrescentMoon_R')],
     ['Stoječa špaga', 'Standing Split', 'Urdhva Prasarita Eka Padasana', IMG('SplitsStanding_L')],
@@ -373,22 +378,35 @@ const poses = {
     ['Kamela', 'Camel Pose', 'Ustrasana', IMG('Camel')],
     ['Zajec', 'Rabbit Pose', 'Sasangasana', IMG('Rabbit')],
     ['Mačka', 'Cat Pose', 'Marjaryasana', IMG('Cat')],
+    ['Jezdec', 'Low Lunge Twisted', 'Parivritta Anjaneyasana', IMG('LungeTwist_L')],
+    ['Trikotnik', 'Fallen Triangle', 'Patita Tarasana', IMG('FallenTriangle_R')],
     ['Kuščar', 'Lizard Pose', 'Uttana Pristhasana', IMG('Lizard_L')]
   ],
 
   seated: [
     ['Klešče', 'Seated Forward Fold', 'Paschimottanasana', IMG('SeatedForwardBend')],
+    ['Pol-klešče', 'Seated Three Limbed Forward Bend', 'Trianga Mukha Eka Pada Paschimottanasana', IMG('SeatedForwardBendThreeLimbs_L')],
     ['Čolniček – V pose', 'Boat Pose', 'Navasana', IMG('BoatFull')],
     ['Metulj', 'Butterfly Pose', 'Baddha Konasana', IMG('BoundAngle')],
     ['Lotos', 'Lotus Pose', 'Padmasana', IMG('LotusFull')],
     ['Golob', 'Pigeon Pose', 'Kapotasana', IMG('Pigeon')],
     ['Pol-golob', 'Half-Pigeon Pose', 'Ardha Kapotasana', IMG('PigeonHalf_L')],
-    ['Kravja', 'Cow Face', '', IMG('KneePileBind_L')],
+    ['Kravji Gobec', 'Cow Face', '', IMG('KneePileBind_L')],
     ['Metulj', 'Butterfly', '', IMG('Butterfly')],
-    
+    ['Mizica', 'Table', 'Ardha Purvottanasana', IMG('Table')],
+    ['Modrec v zasuku', 'Sage Twist', 'Marichyasana III', IMG('Marichil_L')],
+    ['Črka A', 'Splits Wide', 'Samakonasana', IMG('SplitsWide')],
+    ['Želva', 'Tortoise Pose', 'Kurmasana', IMG('SupineTortoise')],
+    ['Speči junak', 'Sleeping Hero', 'Supta Virasana', IMG('HeroReclining')],
+    ['Morska Deklica', 'Mermaid Pose', 'Eka Pada Rajakapotasana', IMG('PigeonFull_R')],
+    ['Sedeči Zasuk', 'Supine Twist', 'Vakrasana', IMG('MarichiIII_R')],
   ],
 
   lying: [
+    ['Lok', 'Bow Pose', 'Dhanurasana', IMG('Bow')],
+    ['Pol-lok', 'Half Bow Pose', 'Ardha Dhanurasana', IMG('ProneBowHalf_R')],
+    ['Stranski lok', 'Side Bow Pose', 'Parshva Dhanurasana', IMG('BowSide_R')],
+    ['Zmija', 'Snake Pose', 'Sarpasana', IMG('Snake')],
     ['Kobra', 'Cobra Pose', 'Bhujangasana', IMG('CobraFull')],
     ['Kobilica', 'Locust Pose', 'Salabhasana', IMG('LocustFull')],
     ['Pes navzgor', 'Upward Dog', 'Urdhva Mukha Svanasana', IMG('UpwardDog')],
@@ -397,26 +415,38 @@ const poses = {
     ['Plug', 'Plow', 'Halasana', IMG('Plow')],
     ['Sfinga', 'Sphinx', 'Salamba Bhujangasana', IMG('Sphinx')],
     ['Riba', 'Fish', 'Matsyasana', IMG('FishPreparation')],
-    ['Mrtvec', 'Corpse', 'Shavasana', IMG('Corpse')]
+    ['Mrtvec', 'Corpse', 'Shavasana', IMG('Corpse')],
+    ['Sveča', 'Supported Shoulder Stand', 'Salamba Sarvangasana', IMG('ShoulderstandSupported')],
+    ['Klobčič', 'Wind Removing', 'Pavanamuktasana', IMG('Turtle')],
+    ['Ležeči Zasuk', 'Supine Spinal Twist', 'Supta Matsyendrasana', IMG('SupineSpinalTwist_R')],
   ],
 
   support: [
     ['Pes navzdol', 'Downward Dog', 'Adho Mukha Svanasana', IMG('DownwardDog')],
+    ['Chaturanga', 'Low Push-up', 'Chaturanga Dandasana', IMG('FourLimbedStaff')],
     ['Deska', 'Plank Pose', 'Phalakasana', IMG('Plank')],
+    ['Obrnjena deska', 'Upward Plank', 'Purvottanasana', IMG('PlankUpward')],
+    ['Stranska deska', 'Side Plank', 'Vasisthasana', IMG('PlankSide_R')],
     ['Vrana', 'Crow Pose', 'Kakasana / Bakasana', IMG('Crow')],
+    ['Delfin', 'Dolphin Pose', 'Ardha Pincha Mayurasana', IMG('Dolphin')],
+    ['Skorpijon', 'Scorpion Pose', 'Vrschikasana', IMG('Scorpion')],
   ],
 
   relaxation: [
     ['Otrok', "Child's Pose", 'Balasana', IMG('ChildTraditional')],
     ['Veseli dojenček', 'Happy Baby', 'Ananda Balasana', IMG('BlissfulBaby')],
     ['Zasuk', 'Supine Twist', 'Supta Matsyendrasana', IMG('SupineSpinalTwist_L')],
+    ['Veter', 'Wind Removing Pose', 'Pavanamuktasana', IMG('Turtle')],
+    ['Mrtvec', 'Corpse Pose', 'Shavasana', IMG('Corpse')],
+    ['Školjka', 'Shell', 'Balasana', IMG('ChildWide')],
+    ['Embrijon', 'Embryo', 'Pindasana', IMG('Embryo')],
   ],
   
   back: [
       ['Predklon', '', 'Ardha Uttanasana', IMG('ForwardBendHalfWay')],
       ['Zaklon', '', 'Ardha Chandrasana', IMG('MountainArmsUp')],
       ['Odklon', '', 'Uttanasana', IMG('ForwardBendDeep')],
-            ['Zasuk', '', 'Vakrasana', IMG('MarichiIII_L')],
+      ['Zasuk', '', 'Vakrasana', IMG('MarichiIII_L')],
 
 ]
 };
