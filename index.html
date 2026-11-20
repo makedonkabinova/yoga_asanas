@@ -5,507 +5,235 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ASANE – Jogijski položaji</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --cream: #f7f3ee;
-    --warm: #e8dfd3;
-    --sage: #8a9e88;
-    --terracotta: #c07a5a;
-    --deep: #2d2620;
-    --mid: #6b5c52;
-    --light-sage: #d4dfd3;
-  }
- 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
- 
-  body {
-    background: var(--cream);
-    color: var(--deep);
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-  }
- 
-  /* HEADER */
-  .header {
-    background: var(--deep);
-    color: var(--cream);
-    padding: 60px 40px 50px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .header::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 30% 50%, rgba(138,158,136,0.2) 0%, transparent 60%),
-                radial-gradient(ellipse at 75% 20%, rgba(192,122,90,0.15) 0%, transparent 50%);
-  }
-  .header-inner { position: relative; z-index: 1; }
-  .header h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 5rem;
-    font-weight: 300;
-    letter-spacing: 0.25em;
-    line-height: 1;
-  }
-  .header h1 em {
-    display: block;
-    font-style: italic;
-    font-size: 1.8rem;
-    letter-spacing: 0.15em;
-    color: var(--sage);
-    margin-top: 8px;
-    font-weight: 300;
-  }
-  .header p {
-    margin-top: 18px;
-    font-size: 0.85rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: rgba(247,243,238,0.5);
-  }
- 
-  /* ORNAMENT */
-  .ornament {
-    text-align: center;
-    color: var(--sage);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
-    letter-spacing: 0.5em;
-    padding: 18px 0 0;
-  }
- 
-  /* SECTION */
-  .section {
-    padding: 50px 40px;
-    max-width: 1300px;
-    margin: 0 auto;
-  }
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.2rem;
-    font-weight: 400;
-    letter-spacing: 0.08em;
-    color: var(--deep);
-    border-bottom: 1.5px solid var(--warm);
-    padding-bottom: 14px;
-    margin-bottom: 36px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  .section-title .dot {
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    background: var(--terracotta);
-    flex-shrink: 0;
-  }
-  .section-title span.sub {
-    font-size: 0.9rem;
-    font-family: 'Jost', sans-serif;
-    font-weight: 200;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--mid);
-  }
- 
-  /* GRID */
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 24px;
-  }
- 
-  /* CARD */
-  .card {
-    background: #fff;
-    border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0 2px 12px rgba(45,38,32,0.06);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-  }
-  .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 28px rgba(45,38,32,0.12);
-  }
- 
-  .card-img {
-    width: 100%;
-    aspect-ratio: 3/4;
-    object-fit: cover;
-    object-position: top;
-    display: block;
-    background: var(--warm);
-  }
-  .card-img-placeholder {
-    width: 100%;
-    aspect-ratio: 3/4;
-    background: linear-gradient(145deg, var(--light-sage) 0%, var(--warm) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .card-img-placeholder svg {
-    width: 60px;
-    height: 60px;
-    opacity: 0.4;
-  }
- 
-  .card-body {
-    padding: 14px 16px 16px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-  .card-sl {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--deep);
-    line-height: 1.2;
-  }
-  .card-en {
-    font-size: 0.72rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--terracotta);
-    font-weight: 300;
-  }
-  .card-sa {
-    font-size: 0.72rem;
-    color: var(--mid);
-    font-style: italic;
-    margin-top: 2px;
-    font-family: 'Cormorant Garamond', serif;
-  }
- 
-  /* FLOW SECTION */
-  .flow-card {
-    background: var(--deep);
-    color: var(--cream);
-    border-radius: 4px;
-    padding: 30px 36px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  .flow-card h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem;
-    font-weight: 400;
-    letter-spacing: 0.05em;
-  }
-  .flow-card p { font-size: 0.82rem; color: rgba(247,243,238,0.6); letter-spacing: 0.1em; }
- 
-  .movements {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 16px;
-    margin-top: 10px;
-  }
-  .movement-item {
-    background: rgba(247,243,238,0.06);
-    border: 1px solid rgba(247,243,238,0.12);
-    border-radius: 4px;
-    padding: 18px 20px;
-  }
-  .movement-item h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; }
-  .movement-item p { font-size: 0.75rem; color: rgba(247,243,238,0.5); margin-top: 4px; }
- 
-  /* FOOTER */
-  footer {
-    text-align: center;
-    padding: 40px;
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--mid);
-    border-top: 1px solid var(--warm);
-  }
- 
-  @media (max-width: 600px) {
-    .header h1 { font-size: 3rem; }
-    .section { padding: 36px 20px; }
-    .grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px; }
-  }
-</style>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
- 
+
 <header class="header">
   <div class="header-inner">
     <h1>ASANE<em>Jogijski položaji</em></h1>
     <p>Popoln vodnik po jogijskih asanah</p>
   </div>
 </header>
-<div class="ornament">· · ·</div>
- 
-<!-- ═══════════════ STOJEČE ═══════════════ -->
-<section class="section">
-  <h2 class="section-title"><span class="dot"></span>Stoječe asane <span class="sub">Standing Poses</span></h2>
-  <div class="grid" id="standing"></div>
-</section>
- 
-<!-- ═══════════════ KLEČEČE ═══════════════ -->
-<section class="section" style="background:var(--warm); max-width:100%; padding: 50px 0;">
-  <div style="max-width:1300px;margin:0 auto;padding:0 40px;">
-    <h2 class="section-title"><span class="dot"></span>Klečeče asane <span class="sub">Kneeling Poses</span></h2>
-    <div class="grid" id="kneeling"></div>
-  </div>
-</section>
- 
-<!-- ═══════════════ SEDEČE ═══════════════ -->
-<section class="section">
-  <h2 class="section-title"><span class="dot"></span>Sedeče asane <span class="sub">Seated Poses</span></h2>
-  <div class="grid" id="seated"></div>
-</section>
- 
-<!-- ═══════════════ LEŽEČE ═══════════════ -->
-<section class="section" style="background:var(--light-sage); max-width:100%; padding: 50px 0;">
-  <div style="max-width:1300px;margin:0 auto;padding:0 40px;">
-    <h2 class="section-title"><span class="dot"></span>Ležeče asane <span class="sub">Lying Poses</span></h2>
-    <div class="grid" id="lying"></div>
-  </div>
-</section>
- 
-<!-- ═══════════════ OPORE ═══════════════ -->
-<section class="section">
-  <h2 class="section-title"><span class="dot"></span>Opore <span class="sub">Support Poses</span></h2>
-  <div class="grid" id="support"></div>
-</section>
- 
-<!-- ═══════════════ SPROSTILNE ═══════════════ -->
-<section class="section" style="background:var(--warm); max-width:100%; padding: 50px 0;">
-  <div style="max-width:1300px;margin:0 auto;padding:0 40px;">
-    <h2 class="section-title"><span class="dot"></span>Sprostilne asane <span class="sub">Relaxation Poses</span></h2>
-    <div class="grid" id="relaxation"></div>
-  </div>
-</section>
-<!-- ═══════════════ GIBANJA HRBTENICE ═══════════════ -->
-<section class="section" style="background:var(--warm); max-width:100%; padding: 50px 0;">
-  <div style="max-width:1300px;margin:0 auto;padding:0 40px;">
-    <h2 class="section-title"><span class="dot"></span>Gibanja Hrbtenice <span class="sub">Spinal Movements</span></h2>
-    <div class="grid" id="back"></div>
-  </div>
-</section>
- 
-<!-- ═══════════════ FLOW ═══════════════ -->
-<section class="section">
-  <h2 class="section-title"><span class="dot"></span>Flow <span class="sub">Sequences</span></h2>
-<div class="grid" style="grid-template-columns: 1fr; gap: 24px;" id="flow-grid">    <div class="flow-card">
-      <h3>Pozdrav soncu</h3>
-      <p>Sun Salutation · Surya Namaskar</p>
-      <img src="https://www.artofliving.org/us-en/blog/wp-content/uploads/2025/06/Sun-Salutations_chart.jpg.webp" width=500>
+
+<nav class="nav">
+  <button class="nav-btn active" data-view="browse">Brskaj</button>
+  <button class="nav-btn" data-view="sequence">Zaporedje</button>
+  <button class="nav-btn" data-view="quiz">Kviz</button>
+</nav>
+
+<!-- ═══════════ BROWSE VIEW ═══════════ -->
+<div id="view-browse" class="view active">
+
+  <div class="search-bar">
+    <div class="search-input-wrap">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input id="browse-search" class="search-input" type="search" placeholder="Išči asano · Search poses…" autocomplete="off">
     </div>
-    <div class="flow-card">
-      <h3>Pozdrav luni</h3>
-      <p>Moon Salutation · Chandra Namaskar</p>
-      <img src="https://i.pinimg.com/originals/74/99/82/749982dc331b4bc7a6835b1cb7437d95.png" width=500>
+    <div class="filter-chips">
+      <button class="chip filter-chip active" data-section="all">Vse</button>
+      <button class="chip filter-chip" data-section="standing">Stoječe</button>
+      <button class="chip filter-chip" data-section="kneeling">Klečeče</button>
+      <button class="chip filter-chip" data-section="seated">Sedeče</button>
+      <button class="chip filter-chip" data-section="lying">Ležeče</button>
+      <button class="chip filter-chip" data-section="support">Opore</button>
+      <button class="chip filter-chip" data-section="relaxation">Sprostilne</button>
+      <button class="chip filter-chip" data-section="back">Hrbtenica</button>
     </div>
   </div>
- 
-<!--  <h2 class="section-title" style="margin-top:48px;"><span class="dot"></span>Gibanja hrbtenice <span class="sub">Spinal Movements</span></h2>-->
-<!--  <div class="flow-card">-->
-<!--    <div class="movements">-->
-<!--      <div class="movement-item"><h4>Predklon</h4><p>Forward Bend</p></div>-->
-<!--      <div class="movement-item"><h4>Zaklon</h4><p>Backbend</p></div>-->
-<!--      <div class="movement-item"><h4>Odklon</h4><p>Side Bend</p></div>-->
-<!--      <div class="movement-item"><h4>Zasuk</h4><p>Twist</p></div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</section>-->
- 
+
+  <div id="browse-results" class="search-results-section" style="display:none;"></div>
+
+  <div id="browse-sections">
+    <div class="ornament">· · ·</div>
+
+    <section class="section">
+      <h2 class="section-title"><span class="dot"></span>Stoječe asane <span class="sub">Standing Poses</span></h2>
+      <div class="grid" id="section-standing"></div>
+    </section>
+
+    <section class="section" style="background:var(--warm); max-width:100%; padding:50px 0;">
+      <div style="max-width:1300px;margin:0 auto;padding:0 40px;">
+        <h2 class="section-title"><span class="dot"></span>Klečeče asane <span class="sub">Kneeling Poses</span></h2>
+        <div class="grid" id="section-kneeling"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title"><span class="dot"></span>Sedeče asane <span class="sub">Seated Poses</span></h2>
+      <div class="grid" id="section-seated"></div>
+    </section>
+
+    <section class="section" style="background:var(--light-sage); max-width:100%; padding:50px 0;">
+      <div style="max-width:1300px;margin:0 auto;padding:0 40px;">
+        <h2 class="section-title"><span class="dot"></span>Ležeče asane <span class="sub">Lying Poses</span></h2>
+        <div class="grid" id="section-lying"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title"><span class="dot"></span>Opore <span class="sub">Support Poses</span></h2>
+      <div class="grid" id="section-support"></div>
+    </section>
+
+    <section class="section" style="background:var(--warm); max-width:100%; padding:50px 0;">
+      <div style="max-width:1300px;margin:0 auto;padding:0 40px;">
+        <h2 class="section-title"><span class="dot"></span>Sprostilne asane <span class="sub">Relaxation Poses</span></h2>
+        <div class="grid" id="section-relaxation"></div>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--warm); max-width:100%; padding:50px 0;">
+      <div style="max-width:1300px;margin:0 auto;padding:0 40px;">
+        <h2 class="section-title"><span class="dot"></span>Gibanja hrbtenice <span class="sub">Spinal Movements</span></h2>
+        <div class="grid" id="section-back"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title"><span class="dot"></span>Flow <span class="sub">Sequences</span></h2>
+      <div style="grid-template-columns:1fr;gap:24px;display:grid;">
+        <div class="flow-card">
+          <h3>Pozdrav soncu</h3>
+          <p>Sun Salutation · Surya Namaskar</p>
+          <img src="https://www.artofliving.org/us-en/blog/wp-content/uploads/2025/06/Sun-Salutations_chart.jpg.webp" width="500" alt="Sun Salutation" style="margin-top:16px;border-radius:4px;max-width:100%;">
+        </div>
+        <div class="flow-card">
+          <h3>Pozdrav luni</h3>
+          <p>Moon Salutation · Chandra Namaskar</p>
+          <img src="https://i.pinimg.com/originals/74/99/82/749982dc331b4bc7a6835b1cb7437d95.png" width="500" alt="Moon Salutation" style="margin-top:16px;border-radius:4px;max-width:100%;">
+        </div>
+      </div>
+    </section>
+  </div>
+
+</div><!-- /view-browse -->
+
+<!-- ═══════════ SEQUENCE VIEW ═══════════ -->
+<div id="view-sequence" class="view">
+  <div class="sequence-view">
+    <div class="sequence-header">
+      <div>
+        <h2>Zaporedje</h2>
+        <p>Sestavi svoje zaporedje · Build your sequence</p>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <button id="seq-export-btn" class="btn btn-secondary">↓ Izvozi</button>
+        <button id="seq-clear-btn" class="btn btn-danger">Počisti</button>
+      </div>
+    </div>
+
+    <div class="sequence-layout">
+      <!-- browse to add -->
+      <div>
+        <div class="seq-browse-search search-bar" style="padding:0 0 20px;">
+          <div class="search-input-wrap" style="max-width:360px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input id="seq-browse-search" class="search-input" type="search" placeholder="Išči asano…" autocomplete="off">
+          </div>
+        </div>
+        <div class="grid" id="seq-browse-grid"></div>
+      </div>
+
+      <!-- sequence panel -->
+      <div class="sequence-panel">
+        <div class="sequence-panel-head">
+          <h3>Moje zaporedje</h3>
+          <span class="sequence-count" id="seq-count">0 asan</span>
+        </div>
+        <div class="sequence-list" id="seq-list">
+          <div class="sequence-empty">Zaporedje je prazno · Add poses on the left</div>
+        </div>
+        <div class="sequence-panel-footer">
+          <button id="seq-export-btn-2" class="btn btn-secondary" style="width:100%;">↓ Izvozi zaporedje</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- /view-sequence -->
+
+<!-- ═══════════ QUIZ VIEW ═══════════ -->
+<div id="view-quiz" class="view">
+  <div class="quiz-view">
+    <div class="quiz-header">
+      <h2>Kviz</h2>
+      <p>Preizkusi poznavanje asan · Test your knowledge of poses</p>
+    </div>
+
+    <!-- setup -->
+    <div id="quiz-setup" class="quiz-setup">
+      <h3>Nastavi kviz</h3>
+      <div class="quiz-options">
+        <div class="quiz-option-row">
+          <label>Način</label>
+          <div class="quiz-toggle-group">
+            <button class="quiz-toggle quiz-mode-btn active" data-mode="img-to-sl">SL ime</button>
+            <button class="quiz-toggle quiz-mode-btn" data-mode="img-to-en">EN ime</button>
+            <button class="quiz-toggle quiz-mode-btn" data-mode="img-to-sa">Sanskrit</button>
+          </div>
+        </div>
+        <div class="quiz-option-row">
+          <label>Vprašanj</label>
+          <div class="quiz-toggle-group">
+            <button class="quiz-toggle quiz-count-btn active" data-count="10">10</button>
+            <button class="quiz-toggle quiz-count-btn" data-count="20">20</button>
+            <button class="quiz-toggle quiz-count-btn" data-count="40">40</button>
+          </div>
+        </div>
+      </div>
+      <button id="quiz-start-btn" class="btn btn-primary" style="width:100%;justify-content:center;padding:14px;">Začni kviz · Start Quiz</button>
+    </div>
+
+    <!-- quiz card -->
+    <div id="quiz-card" class="quiz-card" style="display:none;">
+      <div class="quiz-progress">
+        <span id="quiz-q-num">1</span> / <span id="quiz-q-total">10</span>
+        <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quiz-progress-fill" style="width:0%"></div></div>
+        <span class="quiz-score" id="quiz-score">0 / 0</span>
+      </div>
+      <div class="quiz-question" id="quiz-question"></div>
+      <div class="quiz-feedback" id="quiz-feedback"></div>
+      <button id="quiz-next-btn" class="btn btn-primary quiz-next-btn" style="display:none;">Naslednje · Next →</button>
+    </div>
+
+    <!-- result -->
+    <div id="quiz-result" class="quiz-card quiz-result" style="display:none;">
+      <div class="quiz-result-score" id="quiz-final-score">—<em>rezultat</em></div>
+      <p id="quiz-result-msg"></p>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+        <button id="quiz-restart-btn" class="btn btn-primary">Znova · Play Again</button>
+        <button id="quiz-back-btn" class="btn btn-secondary">Nastavi · Settings</button>
+      </div>
+    </div>
+  </div>
+</div><!-- /view-quiz -->
+
+<!-- ═══════════ MODAL ═══════════ -->
+<div id="modal-overlay" class="modal-overlay">
+  <div class="modal">
+    <button class="modal-close" id="modal-close" aria-label="Zapri">×</button>
+    <div id="modal-img"></div>
+    <div class="modal-body">
+      <div class="modal-section-badge" id="modal-section-badge"></div>
+      <div class="modal-sl" id="modal-sl"></div>
+      <div class="modal-en" id="modal-en"></div>
+      <div class="modal-sa" id="modal-sa"></div>
+      <div class="modal-desc" id="modal-desc"></div>
+      <div class="modal-actions">
+        <button class="btn btn-primary" id="modal-add-btn">+ Dodaj v zaporedje</button>
+        <button class="btn btn-secondary" id="modal-close-btn">Zapri</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <footer>ASANE · Jogijski položaji · Popoln vodnik</footer>
- 
-<script>
-// Silhouette SVG placeholder
-const SILHOUETTE = `<svg viewBox="0 0 100 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="50" cy="18" r="10" fill="#8a9e88" opacity="0.4"/>
-  <line x1="50" y1="28" x2="50" y2="75" stroke="#8a9e88" stroke-width="4" opacity="0.4" stroke-linecap="round"/>
-  <line x1="50" y1="45" x2="25" y2="62" stroke="#8a9e88" stroke-width="3.5" opacity="0.4" stroke-linecap="round"/>
-  <line x1="50" y1="45" x2="75" y2="62" stroke="#8a9e88" stroke-width="3.5" opacity="0.4" stroke-linecap="round"/>
-  <line x1="50" y1="75" x2="32" y2="108" stroke="#8a9e88" stroke-width="3.5" opacity="0.4" stroke-linecap="round"/>
-  <line x1="50" y1="75" x2="68" y2="108" stroke="#8a9e88" stroke-width="3.5" opacity="0.4" stroke-linecap="round"/>
-</svg>`;
- 
-// Pose data: [Slovenian name, English name, Sanskrit name, image URL or null]
-const IMG = (seed) => `https://pocketyoga.com/assets/images/full/${seed}.png`;
- 
-const poses = {
-  standing: [
-    ['Palma', 'Mountain / Palm Tree', 'Tadasana', IMG('MountainArmsSide')],
-    ['Polmesec (črka C)', 'Standing Half Moon / C', 'Ardha Chandrasana', IMG('HalfMoon_L')],
-    ['Galeb', 'Seagull Pose', '', IMG('SeatedForwardBendThreeLimbs_L')],
-    ['Stol', 'Chair Pose', 'Utkatasana', IMG('Chair')],
-    ['Stol v zasuku', 'Revolved Chair Pose', 'Parivrtta Utkatasana', IMG('ChairTwist_R')],
-    ['Orel', 'Eagle Pose', 'Garudasana', IMG('Eagle_L')],
-    ['Trikotnik', 'Triangle Pose', 'Trikonasana', IMG('TriangleForward_R')],
-    ['Obrnjen Trikotnik', 'Triangle Revolved', 'Parivritta Trikonasana', IMG('TriangleRevolved_L')],
-    ['Bojevnik 1', 'Warrior I / High Lunge', 'Virabhadrasana I', IMG('WarriorI_L')],
-    ['Bojevnik 2', 'Warrior II', 'Virabhadrasana II', IMG('WarriorII_L')],
-    ['Bojevnik 3', 'Warrior III', 'Virabhadrasana III', IMG('WarriorIIIAirplane_L')],
-    ['Globok predklon raznožno', 'Wide-Legged Forward Fold', 'Prasarita Padottanasana', IMG('WideLeggedForwardBendIV_R')],
-    ['Črka T – Balancing Stick', 'Balancing Stick', 'Tuladandasana', IMG('WarriorIII_L')],
-    ['Lok', 'Standing Bow', 'Dandayamana Dhanurasana', IMG('LordOfTheDance_L')],
-    ['Plesalec', 'Dancer Pose', 'Natarajasana', IMG('LordOfTheDanceFull_L')],
-    ['Dancing Shiva', 'Dancing Shiva Pose', 'Natarajasana Variation', IMG('StandingHandToToeRevolved_L')],
-    ['Pollotos Osnovni', 'Standing Half Lotus', 'Ardha Padmasana', IMG('StandingHalfLotus_R')],
-    ['Pollotos Čep', 'Standing Half Lotus Forward', 'Ardha Baddha Padmottanasana', IMG('StandingForwardBendHalfLotus_R')],
-    ['Predklon na eno nogo', 'Head to knee', 'Dandayamana Janu Shirshasana', IMG('StandingHeadToKnee_L')],
-    ['Drevo', 'Tree Pose', 'Vrksasana', IMG('TreePrayer_L')],
-    ['Veliki polmesec', 'Half Moon Pose', 'Ardha Chandrasana', IMG('CrescentMoon_R')],
-    ['Stoječa špaga', 'Standing Split', 'Urdhva Prasarita Eka Padasana', IMG('SplitsStanding_L')],
-    ['Boginja', 'Goddess', 'Utkata Konasana', IMG('GoddessCactusArms_L')],
-    
-  ['Pahljača', 'Revolved Standing Hand to Big Toe', 'Parivritta Hasta Padangushthasana', IMG('StandingHandToToeRevolved_L')],
-      ['Orel', 'Eagle', 'Garudasana', IMG('Eagle_L')],
-  ],
-// lying: [
-//   ["Bhujangasana", "https://pocketyoga.com/asana/full/CobraFull.png"],
-//   ["Setu Bandhasana", "https://pocketyoga.com/asana/full/Bridge.png"],
-//   ["Shavasana", "https://pocketyoga.com/asana/full/Corpse.png"],
-//   ["Matsyasana", "https://pocketyoga.com/asana/full/Fish.png"],
-//   ["Dhanurasana", "https://pocketyoga.com/asana/full/Bow.png"]
-// ]
 
-  kneeling: [
-    ['Kužek', 'Puppy Pose', 'Uttana Shishosana', IMG('PuppyExtendedStraightLegs')],
-    ['Tiger', 'Tiger Pose', 'Vyaghrasana', IMG('Tiger_L')],
-    ['Kamela', 'Camel Pose', 'Ustrasana', IMG('Camel')],
-    ['Zajec', 'Rabbit Pose', 'Sasangasana', IMG('Rabbit')],
-    ['Mačka', 'Cat Pose', 'Marjaryasana', IMG('Cat')],
-    ['Jezdec', 'Low Lunge Twisted', 'Parivritta Anjaneyasana', IMG('LungeTwist_L')],
-    ['Trikotnik', 'Fallen Triangle', 'Patita Tarasana', IMG('FallenTriangle_R')],
-    ['Kuščar', 'Lizard Pose', 'Uttana Pristhasana', IMG('Lizard_L')]
-  ],
-
-  seated: [
-    ['Klešče', 'Seated Forward Fold', 'Paschimottanasana', IMG('SeatedForwardBend')],
-    ['Pol-klešče', 'Seated Three Limbed Forward Bend', 'Trianga Mukha Eka Pada Paschimottanasana', IMG('SeatedForwardBendThreeLimbs_L')],
-    ['Čolniček – V pose', 'Boat Pose', 'Navasana', IMG('BoatFull')],
-    ['Metulj', 'Butterfly Pose', 'Baddha Konasana', IMG('BoundAngle')],
-    ['Lotos', 'Lotus Pose', 'Padmasana', IMG('LotusFull')],
-    ['Golob', 'Pigeon Pose', 'Kapotasana', IMG('Pigeon')],
-    ['Pol-golob', 'Half-Pigeon Pose', 'Ardha Kapotasana', IMG('PigeonHalf_L')],
-    ['Kravji Gobec', 'Cow Face', '', IMG('KneePileBind_L')],
-    ['Metulj', 'Butterfly', '', IMG('Butterfly')],
-    ['Mizica', 'Table', 'Ardha Purvottanasana', IMG('Table')],
-    ['Modrec v zasuku', 'Sage Twist', 'Marichyasana III', IMG('MarichiI_L')],
-    ['Črka A', 'Splits Wide', 'Samakonasana', IMG('SplitsWide')],
-    ['Želva', 'Tortoise Pose', 'Kurmasana', IMG('SupineTortoise')],
-    ['Speči junak', 'Sleeping Hero', 'Supta Virasana', IMG('HeroReclining')],
-    ['Morska Deklica', 'Mermaid Pose', 'Eka Pada Rajakapotasana', IMG('PigeonFull_R')],
-    ['Sedeči Zasuk', 'Supine Twist', 'Vakrasana', IMG('MarichiIII_R')],
-  ],
-
-  lying: [
-    ['Lok', 'Bow Pose', 'Dhanurasana', IMG('Bow')],
-    ['Pol-lok', 'Half Bow Pose', 'Ardha Dhanurasana', IMG('ProneBowHalf_R')],
-    ['Stranski lok', 'Side Bow Pose', 'Parshva Dhanurasana', IMG('BowSide_R')],
-    ['Kača', 'Snake Pose', 'Sarpasana', IMG('Snake')],
-    ['Kobra', 'Cobra Pose', 'Bhujangasana', IMG('CobraFull')],
-    ['Kobilica', 'Locust Pose', 'Salabhasana', IMG('LocustFull')],
-    ['Pes navzgor', 'Upward Dog', 'Urdhva Mukha Svanasana', IMG('UpwardDog')],
-    ['Mali most', 'Bridge Pose', 'Setu Bandhasana', IMG('Bridge')],
-    ['Veliki most', 'Wheel Pose', 'Urdhva Dhanurasana', IMG('Wheel')],
-    ['Plug', 'Plow', 'Halasana', IMG('Plow')],
-    ['Sfinga', 'Sphinx', 'Salamba Bhujangasana', IMG('Sphinx')],
-    ['Riba', 'Fish', 'Matsyasana', IMG('FishPreparation')],
-    ['Mrtvec', 'Corpse', 'Shavasana', IMG('Corpse')],
-    ['Sveča', 'Supported Shoulder Stand', 'Salamba Sarvangasana', IMG('ShoulderstandSupported')],
-    ['Klobčič', 'Wind Removing', 'Pavanamuktasana', IMG('Turtle')],
-    ['Ležeči Zasuk', 'Supine Spinal Twist', 'Supta Matsyendrasana', IMG('SupineSpinalTwist_R')],
-    ['Pahljača na Hrbtu', 'Extended Supine Hand to Big Toe', 'Supta Padangushthasanar', IMG('SupineHandToToeExtended_L')],
-  ],
-
-  support: [
-    ['Pes navzdol', 'Downward Dog', 'Adho Mukha Svanasana', IMG('DownwardDog')],
-    ['Chaturanga', 'Low Push-up', 'Chaturanga Dandasana', IMG('FourLimbedStaff')],
-    ['Deska', 'Plank Pose', 'Phalakasana', IMG('Plank')],
-    ['Obrnjena deska', 'Upward Plank', 'Purvottanasana', IMG('PlankUpward')],
-    ['Stranska deska', 'Side Plank', 'Vasisthasana', IMG('PlankSide_R')],
-    ['Vrana', 'Crow Pose', 'Kakasana / Bakasana', IMG('Crow')],
-    ['Delfin', 'Dolphin Pose', 'Ardha Pincha Mayurasana', IMG('Dolphin')],
-    ['Skorpijon', 'Scorpion Pose', 'Vrschikasana', IMG('Scorpion')],
-  ],
-
-  relaxation: [
-    ['Otrok', "Child's Pose", 'Balasana', IMG('ChildTraditional')],
-    ['Veseli dojenček', 'Happy Baby', 'Ananda Balasana', IMG('BlissfulBaby')],
-    ['Zasuk', 'Supine Twist', 'Supta Matsyendrasana', IMG('SupineSpinalTwist_L')],
-    ['Veter', 'Wind Removing Pose', 'Pavanamuktasana', IMG('Turtle')],
-    ['Mrtvec', 'Corpse Pose', 'Shavasana', IMG('Corpse')],
-    ['Školjka', 'Shell', 'Balasana', IMG('ChildWide')],
-    ['Zarodek', 'Embryo', 'Pindasana', IMG('Embryo')],
-  ],
-  
-  back: [
-      ['Predklon', '', 'Ardha Uttanasana', IMG('ForwardBendHalfWay')],
-      ['Zaklon', '', 'Ardha Chandrasana', IMG('MountainArmsUp')],
-      ['Odklon', '', 'Uttanasana', IMG('ForwardBendDeep')],
-      ['Zasuk', '', 'Vakrasana', IMG('MarichiIII_L')],
-
-]
-};
- 
-function buildCard(pose) {
-  const [sl, en, sa, imgUrl] = pose;
-
-  const card = document.createElement('div');
-  card.className = 'card';
-
-  let imgEl;
-
-  if (imgUrl) {
-    imgEl = document.createElement('img');
-    imgEl.className = 'card-img';
-    imgEl.src = imgUrl;
-    imgEl.alt = sl;
-    imgEl.loading = "lazy";
-
-    imgEl.onerror = () => {
-      const placeholder = document.createElement("div");
-      placeholder.className = "card-img-placeholder";
-      placeholder.innerHTML = SILHOUETTE;
-      card.replaceChild(placeholder, imgEl);
-    };
-  } else {
-    const placeholder = document.createElement("div");
-    placeholder.className = "card-img-placeholder";
-    placeholder.innerHTML = SILHOUETTE;
-    imgEl = placeholder;
-  }
-
-  const body = document.createElement("div");
-  body.className = "card-body";
-  body.innerHTML = `
-    <div class="card-sl">${sl}</div>
-    ${en ? `<div class="card-en">${en}</div>` : ''}
-    ${sa ? `<div class="card-sa">${sa}</div>` : ''}
-  `;
-
-  card.appendChild(imgEl);
-  card.appendChild(body);
-
-  return card;
-}
- 
-function renderSection(id, key) {
-  const container = document.getElementById(id);
-  poses[key].forEach(p => container.appendChild(buildCard(p)));
-}
- 
-renderSection('standing', 'standing');
-renderSection('kneeling', 'kneeling');
-renderSection('seated', 'seated');
-renderSection('lying', 'lying');
-renderSection('support', 'support');
-renderSection('relaxation', 'relaxation');
-renderSection('back', 'back');
-</script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>
